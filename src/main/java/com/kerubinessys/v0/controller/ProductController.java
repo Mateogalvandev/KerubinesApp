@@ -30,10 +30,10 @@ public class ProductController {
         return "Product was successfully localized";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/create")
     public String createProduct(@RequestBody Product product) {
         productService.saveProduct(product);
-        return "Producto was successfully created";
+        return "Product was successfully created";
     }
 
     @PutMapping("/edit/{id}")

@@ -11,9 +11,16 @@ public class Sale {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idSale;
+    @Column(name = "date")
     private LocalDate date;
-    private String TypeSale;
+    @Column(name = "type_sale")
+    private String typeSale;
     @ManyToMany
+    @JoinTable(
+            name = "sale_product",
+            joinColumns = @JoinColumn(name = "sale_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
     private List<Product> productList;
     @ManyToOne
     private UserApp userSale;
@@ -22,7 +29,7 @@ public class Sale {
     public Sale(Long idSale, LocalDate date, String typeSale, List<Product> productList, UserApp userSale, Double totalCost) {
         this.idSale = idSale;
         this.date = date;
-        TypeSale = typeSale;
+        this.typeSale = typeSale;
         this.productList = productList;
         this.userSale = userSale;
         this.totalCost = totalCost;
@@ -48,11 +55,11 @@ public class Sale {
     }
 
     public String getTypeSale() {
-        return TypeSale;
+        return typeSale;
     }
 
     public void setTypeSale(String typeSale) {
-        TypeSale = typeSale;
+        this.typeSale = typeSale;
     }
 
     public List<Product> getProductList() {
@@ -84,7 +91,7 @@ public class Sale {
         return "Sale{" +
                 "idSale=" + idSale +
                 ", date=" + date +
-                ", TypeSale='" + TypeSale + '\'' +
+                ", typeSale='" + typeSale + '\'' +
                 ", productList=" + productList +
                 ", userSale=" + userSale +
                 ", totalCost=" + totalCost +

@@ -16,7 +16,7 @@ public class Product {
     private String size;
     private Long stock;
     private String category;
-    @ManyToMany
+    @ManyToMany(mappedBy = "productList")
     private List<Sale> saleList;
 
     public Product(Long idProduct, String productName, String productDescription, Double cost, String color, String size, Long stock, String category, List<Sale> saleList) {

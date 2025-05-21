@@ -15,7 +15,7 @@ public class UserApp {
     private String surname;
     private String dni;
     private String rol;
-    @OneToMany
+    @OneToMany(mappedBy = "userSale")
     private List<Sale> saleList;
 
     public UserApp(Long idUser, String name, String surname, String dni, String rol, List<Sale> saleList) {
