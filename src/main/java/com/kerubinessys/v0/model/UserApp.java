@@ -11,17 +11,19 @@ public class UserApp {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idUser;
-    private String name;
+    private String username;
     private String surname;
+    private String password;
     private String dni;
     private String rol;
     @OneToMany(mappedBy = "userSale")
     private List<Sale> saleList;
 
-    public UserApp(Long idUser, String name, String surname, String dni, String rol, List<Sale> saleList) {
+    public UserApp(Long idUser, String username, String surname, String password, String dni, String rol, List<Sale> saleList) {
         this.idUser = idUser;
-        this.name = name;
+        this.username = username;
         this.surname = surname;
+        this.password = password;
         this.dni = dni;
         this.rol = rol;
         this.saleList = saleList;
@@ -38,12 +40,12 @@ public class UserApp {
         this.idUser = idUser;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername (String username) {
+        this.username = username;
     }
 
     public String getSurname() {
@@ -52,6 +54,14 @@ public class UserApp {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getDni() {
@@ -82,8 +92,9 @@ public class UserApp {
     public String toString() {
         return "UserApp{" +
                 "idUser=" + idUser +
-                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
                 ", surname='" + surname + '\'' +
+                ", password='" + password + '\'' +
                 ", dni='" + dni + '\'' +
                 ", rol='" + rol + '\'' +
                 ", saleList=" + saleList +

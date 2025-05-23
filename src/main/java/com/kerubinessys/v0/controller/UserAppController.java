@@ -48,9 +48,10 @@ public class UserAppController {
                                @RequestParam (required = false, name = "name") String name,
                                @RequestParam (required = false, name = "surname") String surname,
                                @RequestParam (required = false, name = "dni") String dni,
+                               @RequestParam(required = false, name = "password") String password,
                                @RequestParam (required = false, name = "rol") String rol,
                                @RequestParam (required = false, name = "saleList")List<Sale> saleList){
-        userAppService.editUser(id,name,surname,dni,rol,saleList);
+        userAppService.editUser(id,name,surname, password,dni,rol,saleList);
         UserApp userApp = userAppService.findUser(id);
         return userApp;
     }

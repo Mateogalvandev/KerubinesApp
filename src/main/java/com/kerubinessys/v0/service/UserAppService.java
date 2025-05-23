@@ -40,10 +40,11 @@ public class UserAppService implements IUserAppService{
     }
 
     @Override
-    public void editUser(Long id, String name, String surname, String dni, String rol, List<Sale> saleList) {
+    public void editUser(Long id, String username, String surname, String password ,String dni, String rol, List<Sale> saleList) {
         UserApp userApp = this.findUser(id);
-        userApp.setName(name);
+        userApp.setUsername(username);
         userApp.setSurname(surname);
+        userApp.setPassword(password);
         userApp.setDni(dni);
         userApp.setRol(rol);
         userApp.setSaleList(saleList);

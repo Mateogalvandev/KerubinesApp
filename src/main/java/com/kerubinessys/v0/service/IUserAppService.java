@@ -15,5 +15,5 @@ public interface IUserAppService {
 
     public void deleteUser(Long id);
 
-    public void editUser(Long id, String name, String surname, String dni, String rol, List<Sale> saleList);
+    public void editUser(Long id, String name, String surname, String password, String dni, String rol, List<Sale> saleList);
 }
